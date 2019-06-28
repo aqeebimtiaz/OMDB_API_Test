@@ -10,7 +10,9 @@ def getMovieDetails(query):
     res = requests.get(url)
     # jsonData = json.dumps(res.content) 
     # data = json.loads(res)
-    return res.json()["Title"]
+    if(res.json()['Response'] != "False"):
+        return res.json()["Title"]
+
 movieId = input("Enter movie id (IMDB id): ")
 print(movieId)
 movieName = input("Enter movie id (IMDB name): ")
